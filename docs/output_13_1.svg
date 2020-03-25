@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 16.0 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="600px" height="600px" viewBox="0 0 1584 1584" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="1584" height="1584" style="fill:#C6D3DF;stroke:none"/>
+	<rect x="0.00" y="0.05" width="1584.00" height="1583.95" style="fill:#C6D3DF"/>
+	<rect x="1.58" y="1.63" width="1580.83" height="1580.78" style="fill:none;stroke:#C6D3DF;stroke-width:3.17"/>
+	<line x1="55.44" y1="1380.06" x2="1324.12" y2="1380.06" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="1124.79" x2="1324.12" y2="1124.79" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="869.57" x2="1324.12" y2="869.57" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="614.29" x2="1324.12" y2="614.29" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="359.02" x2="1324.12" y2="359.02" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="103.75" x2="1324.12" y2="103.75" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<rect x="124.45" y="1367.34" width="119.00" height="12.72" style="fill:#CAC27E"/>
+	<rect x="126.82" y="1369.71" width="114.25" height="7.97" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="243.45" y="1336.40" width="119.05" height="43.66" style="fill:#CAC27E"/>
+	<rect x="245.82" y="1338.78" width="114.30" height="38.91" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="362.50" y="1247.30" width="119.00" height="132.76" style="fill:#CAC27E"/>
+	<rect x="364.88" y="1249.68" width="114.25" height="128.01" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="481.50" y="1045.39" width="119.00" height="334.67" style="fill:#CAC27E"/>
+	<rect x="483.88" y="1047.77" width="114.25" height="329.92" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="600.50" y="848.92" width="119.05" height="531.13" style="fill:#CAC27E"/>
+	<rect x="602.88" y="851.30" width="114.30" height="526.38" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="719.55" y="312.35" width="119.00" height="1067.71" style="fill:#CAC27E"/>
+	<rect x="721.93" y="314.72" width="114.25" height="1062.96" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="838.56" y="64.99" width="119.00" height="1315.07" style="fill:#CAC27E"/>
+	<rect x="840.93" y="67.37" width="114.25" height="1310.31" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="957.56" y="534.25" width="119.00" height="845.81" style="fill:#CAC27E"/>
+	<rect x="959.93" y="536.63" width="114.25" height="841.05" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="1076.56" y="1123.60" width="119.05" height="256.46" style="fill:#CAC27E"/>
+	<rect x="1078.94" y="1125.98" width="114.30" height="251.71" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<rect x="1195.61" y="1361.89" width="119.00" height="18.17" style="fill:#CAC27E"/>
+	<rect x="1197.99" y="1364.27" width="114.25" height="13.41" style="fill:none;stroke:#D7D29E;stroke-width:4.75"/>
+	<text x="1346.10" y="1401.24" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">0</text>
+	<text x="1346.10" y="1145.97" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">.01</text>
+	<text x="1346.10" y="890.75" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">.02</text>
+	<text x="1346.10" y="635.48" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">.03</text>
+	<text x="1346.10" y="380.21" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">.04</text>
+	<text x="1346.10" y="124.94" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">.05</text>
+	<text x="1499.40" y="717.80" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" transform="rotate(-90 1499.40,717.80)" text-anchor="middle">Density</text>
+	<line x1="55.44" y1="1380.06" x2="1324.12" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<line x1="145.68" y1="1358.08" x2="145.68" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="145.68" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">10</text>
+	<line x1="358.24" y1="1358.08" x2="358.24" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="358.24" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">20</text>
+	<line x1="570.75" y1="1358.08" x2="570.75" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="570.75" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">30</text>
+	<line x1="783.31" y1="1358.08" x2="783.31" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="783.31" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">40</text>
+	<line x1="995.82" y1="1358.08" x2="995.82" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="995.82" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">50</text>
+	<line x1="1208.33" y1="1358.08" x2="1208.33" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="1208.33" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">60</text>
+	<text x="689.75" y="1499.40" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">% Medicare Beneficiaries Getting Flu Vaccine</text>
+</svg>
