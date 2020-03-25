@@ -1,6 +1,6 @@
 		
 // Import RWJF data
-import excel "/Users/nabarun/Dropbox/DATA/RWJ County Health Rankings/analyticdata/2019 County Health Rankings Data - v3.xls", sheet("Outcomes & Factors SubRankings") cellrange(A2:P3144) firstrow allstring clear
+import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Outcomes & Factors SubRankings") cellrange(A2:P3144) firstrow allstring clear
 
 	rename ofRankedCounties totalcounties
 	rename Rank lengthoflife
@@ -27,7 +27,7 @@ import excel "/Users/nabarun/Dropbox/DATA/RWJ County Health Rankings/analyticdat
 	
 save sixrankings, replace
 
-import excel "/Users/nabarun/Dropbox/DATA/RWJ County Health Rankings/analyticdata/2019 County Health Rankings Data - v3.xls", sheet("Ranked Measure Data") allstring clear
+import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Data") allstring clear
 
 	rename A fips
 	rename B state
@@ -253,7 +253,8 @@ import excel "/Users/nabarun/Dropbox/DATA/RWJ County Health Rankings/analyticdat
 
 
 clear
-	import delimited "/Users/nabarun/Dropbox/Projects/Descartes Lab movement data/counties_flattened.csv"
+
+	import delimited "counties_flattened.csv"
 	
 	drop if county==""
 		gen date2=date(date,"YMD")
