@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 16.0 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="600px" height="600px" viewBox="0 0 1584 1584" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="1584" height="1584" style="fill:#C6D3DF;stroke:none"/>
+	<rect x="0.00" y="0.05" width="1584.00" height="1583.95" style="fill:#C6D3DF"/>
+	<rect x="1.58" y="1.63" width="1580.83" height="1580.78" style="fill:none;stroke:#C6D3DF;stroke-width:3.17"/>
+	<line x1="55.44" y1="1349.96" x2="1205.31" y2="1349.96" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="1049.99" x2="1205.31" y2="1049.99" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="749.97" x2="1205.31" y2="749.97" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="450.00" x2="1205.31" y2="450.00" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="149.98" x2="1205.31" y2="149.98" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<path d=" M64.90 1370.61 L347.65 1214.78 L630.35 932.38 L913.06 692.01 L1195.81 185.67" stroke-linejoin="round" style="fill:none;stroke:#3E647D;stroke-width:19.01"/>
+	<text x="1227.34" y="1371.15" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">85000</text>
+	<text x="1227.34" y="1071.18" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">90000</text>
+	<text x="1227.34" y="771.16" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">95000</text>
+	<text x="1227.34" y="471.19" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">100000</text>
+	<text x="1227.34" y="171.17" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">105000</text>
+	<text x="1499.40" y="760.27" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" transform="rotate(-90 1499.40,760.27)" text-anchor="middle">80th Percentile Income ($)</text>
+	<line x1="55.44" y1="1380.06" x2="1205.31" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<line x1="64.95" y1="1358.08" x2="64.95" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="64.95" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">1</text>
+	<line x1="347.65" y1="1358.08" x2="347.65" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="347.65" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">2</text>
+	<line x1="630.40" y1="1358.08" x2="630.40" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="630.40" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">3</text>
+	<line x1="913.11" y1="1358.08" x2="913.11" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="913.11" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">4</text>
+	<line x1="1195.81" y1="1358.08" x2="1195.81" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="1195.81" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">5</text>
+	<text x="630.40" y="1499.40" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">Social Distancing: Lowest (1) to Highest (5)</text>
+	<rect x="740.69" y="55.49" width="464.62" height="84.99" style="fill:#7B92A8"/>
+	<rect x="742.28" y="57.07" width="461.45" height="81.82" style="fill:none;stroke:#7B92A8;stroke-width:3.17"/>
+	<text x="1195.81" y="121.12" style="font-family:'Helvetica';font-size:65.99px;fill:#FFFFff" text-anchor="end">Annual Income</text>
+</svg>
