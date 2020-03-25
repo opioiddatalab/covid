@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 16.0 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="600px" height="600px" viewBox="0 0 1584 1584" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="1584" height="1584" style="fill:#C6D3DF;stroke:none"/>
+	<rect x="0.00" y="0.05" width="1584.00" height="1583.95" style="fill:#C6D3DF"/>
+	<rect x="1.58" y="1.63" width="1580.83" height="1580.78" style="fill:none;stroke:#C6D3DF;stroke-width:3.17"/>
+	<line x1="55.44" y1="1370.56" x2="1342.53" y2="1370.56" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="1126.47" x2="1342.53" y2="1126.47" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="882.34" x2="1342.53" y2="882.34" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="638.20" x2="1342.53" y2="638.20" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="394.12" x2="1342.53" y2="394.12" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="149.98" x2="1342.53" y2="149.98" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<path d=" M64.90 1244.48 L381.95 1099.79 L698.96 1027.12 L1015.97 834.22 L1333.03 204.43" stroke-linejoin="round" style="fill:none;stroke:#3E647D;stroke-width:19.01"/>
+	<text x="1364.51" y="1391.74" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">45</text>
+	<text x="1364.51" y="1147.66" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">50</text>
+	<text x="1364.51" y="903.52" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">55</text>
+	<text x="1364.51" y="659.39" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">60</text>
+	<text x="1364.51" y="415.30" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">65</text>
+	<text x="1364.51" y="171.17" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">70</text>
+	<text x="1499.40" y="760.27" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" transform="rotate(-90 1499.40,760.27)" text-anchor="middle">PCP per 100k Population</text>
+	<line x1="55.44" y1="1380.06" x2="1342.53" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<line x1="64.95" y1="1358.08" x2="64.95" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="64.95" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">1</text>
+	<line x1="381.95" y1="1358.08" x2="381.95" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="381.95" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">2</text>
+	<line x1="699.01" y1="1358.08" x2="699.01" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="699.01" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">3</text>
+	<line x1="1016.02" y1="1358.08" x2="1016.02" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="1016.02" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">4</text>
+	<line x1="1333.03" y1="1358.08" x2="1333.03" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="1333.03" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">5</text>
+	<text x="699.01" y="1499.40" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">Social Distancing: Lowest (1) to Highest (5)</text>
+	<rect x="618.03" y="55.49" width="724.50" height="84.99" style="fill:#7B92A8"/>
+	<rect x="619.61" y="57.07" width="721.34" height="81.82" style="fill:none;stroke:#7B92A8;stroke-width:3.17"/>
+	<text x="1333.03" y="121.12" style="font-family:'Helvetica';font-size:65.99px;fill:#FFFFff" text-anchor="end">Primary Care Providers</text>
+</svg>
