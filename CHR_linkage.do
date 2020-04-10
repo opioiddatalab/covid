@@ -1,31 +1,15 @@
-		
-// Import RWJF data
-import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Outcomes & Factors SubRankings") cellrange(A2:P3144) firstrow allstring clear
 
-	rename ofRankedCounties totalcounties
-	rename Rank lengthoflife
-	rename Quartile lengthoflife_q
-	rename G qualityoflife
-	rename H qualityoflife_q
-	rename I healthbehaviors
-	rename J healthbehaviors_q
-	rename K clinicalcare
-	rename L clinicalcare_q
-	rename M ses
-	rename N ses_q
-	rename O physicalenvironment
-	rename P physicalenvironment_q
-	note: RWJF Community Health Rankings 2019 v3 file
-	rename FIPS fips
-	drop State County
+cd "/Users/nabarun/Documents/GitHub/covid/"
+
+// Import and save RUCC codes
+clear
+import excel "ruralurbancodes2013.xls", sheet("Rural-urban Continuum Code 2013") cellrange(A1:F3222) firstrow
+rename FIPS fips
+rename RUCC_2013 rucc
+drop Description County_Name State
+save rucc, replace
 	
-	foreach var of varlist totalcounties-physicalenvironment_q {
-	replace `var'="" if `var'=="NR"
-	}
-	
-	destring totalcounties-physicalenvironment_q, replace
-	
-save sixrankings, replace
+// Import RWJF data
 
 import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Data") allstring clear
 
@@ -229,7 +213,7 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 						la var inadhousing "% of households with lack of kitchen or plumbing facilities"
 							drop ET
 	rename EU drivealone_p
-		la var drivealone "% of workers who drive alone to work"
+		la var drivealone_p "% of workers who drive alone to work"
 			drop EV EW EX
 				rename EY drivealone_black
 					la var drivealone_black "% of Black workers who drive alone to work"
@@ -246,9 +230,7 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 	drop if fips=="" | fips=="FIPS"
 	
 	destring ypll-longcommute_p, replace
-	
-	cd "/Users/nabarun/Dropbox/Projects/Descartes Lab movement data/"
-	
+		
 	save chrdetail, replace
 
 
@@ -284,6 +266,8 @@ clear
 			replace isolating=0 if trend>=0 & trend!=.
 		
 merge m:1 state county using chrdetail, keep(3) nogen
+
+merge 1:1 fips using rucc, keep(3) nogen
 
 	distinct county
 	distinct county if trend==.
