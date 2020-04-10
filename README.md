@@ -2,5 +2,5 @@
 
 SUBMISSION UNDER REVIEW. 
 
-This repository contains the data and code for *Science* submission `abb8840`.
+
 
