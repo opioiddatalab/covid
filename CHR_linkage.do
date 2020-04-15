@@ -1,14 +1,6 @@
 
 cd "/Users/nabarun/Documents/GitHub/covid/"
 
-// Import and save RUCC codes
-clear
-import excel "ruralurbancodes2013.xls", sheet("Rural-urban Continuum Code 2013") cellrange(A1:F3222) firstrow
-rename FIPS fips
-rename RUCC_2013 rucc
-drop Description County_Name State
-save rucc, replace
-	
 // Import RWJF data
 
 import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Data") allstring clear
@@ -29,20 +21,7 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 		la var fairpoorhealth "% in fair or poor health"
 			drop L M N
 	rename O poorphysicaldays
-		la var poorphysicaldays "# Physically unhealthy days"
-			drop P Q R
-	rename S poormentaldays
-		la var poormentaldays "# Mentally unhealthy days"
-			drop  T U V
-	rename X lbw
-		la var lbw "% of births with low birth weight (<2500g)"
-			drop W Y Z AA
-				rename AB lbw_black
-					la var lbw_black "% Low Birth Weight among Blacks"
-						rename AC lbw_hispanic
-							la var lbw_hispanic "% Low Birth Weight among Hispanics"
-								rename AD lbw_white
-									la var lbw_white "% Low Birth Weight among Whites"
+
 	rename AE smokers
 		la var smokers "% of Adults who smoke tobacco"
 			drop AF AG AH
@@ -58,9 +37,6 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 	rename AS exercise
 		la var exercise "% of population with access to places for physical activity"
 			drop AT
-	rename AU xsdrinking
-		la var xsdrinking "% of adults that report excessive drinking"
-			drop AV AW AX
 	rename AY alcdriving
 		la var alcdriving "# of alcohol-impaired driving deaths"
 			rename AZ drivingdeaths
@@ -68,20 +44,6 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 					rename BA alcdriving_p
 						la var alcdriving_p "% of driving deaths alcohol impaired"
 							drop BB BC BD
-	rename BE std
-		la var std "# Chlamydia Cases"
-			rename BF std_r
-				la var std_r "Chlamydia cases per 100,000 population"
-					drop BG
-	rename BH teenbirth
-		la var teenbirth "Births per 1,000 females ages 15-19"
-			drop BI BJ BK
-				rename BL teenbirth_black
-					la var teenbirth_black "Teen birth rate among Blacks"
-						rename BM teenbirth_hispanic
-							la var teenbirth_hispanic "Teen birth rate among Hispanics"
-								rename BN teenbirth_white
-									la var teenbirth_white "Teen birth rate among Whites"
 	rename BO uninsured
 		la var uninsured "# under age 65 without insurance"
 			rename BP uninsured_p
@@ -137,16 +99,7 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 							rename CT fluvaccine_white
 								la var fluvaccine_white "% flu vaccinated among Whites"
 									drop CQ
-	rename CU hsgrad
-		la var hsgrad "# of students expected to graduate"
-			rename CV hsgrad_rate
-				la var hsgrad_rate "High school graduation rate"
-					drop CW
-	rename CX somecollege
-		la var somecollege "Adults age 25-44 with some post-secondary education"
-			rename CZ somecollege_pct
-				la var somecollege_pct "% of adults age 25-44 with some post-secondary education"
-					drop CY DA DB DC
+
 	rename DD unemployed
 		la var unemployed "Number of people ages 16+ unemployed and looking for work"
 			rename DE laborforce
@@ -170,28 +123,7 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 					rename DQ incomeratio
 						la var incomeratio "Ratio of household income at 80th% to income at 20th %"
 							drop DR
-	rename DS singleparent
-		la var singleparent "# of children that live in single-parent households"
-			rename DT households
-				la var households "# of children in households"
-					rename DU singleparent_p
-						la var singleparent_p "Percentage of children that live in single-parent households"
-							drop DV DW DX
-	rename DY socialassoc
-		la var socialassoc "Number of associations"
-			rename DZ socialassoc_r
-				la var socialassoc_r "Social Associations per 10,000 population"
-					drop EA
-	rename EB violentcrime
-		la var violentcrime "Number of violent crimes"
-			rename EC violentcrime_r
-				la var violentcrime_r "Violent crimes per 100,000 population"
-					drop ED
-	rename EE injury
-		la var injury "Number of injury deaths"
-			rename EF injury_r
-				la var injury_r "Injury mortality rate per 100,000"
-					drop EG EH EI
+
 	rename EJ airpol
 		la var airpol "PM2.5 Avg. daily amount of fine particulate matter in micrograms per cubic meter"
 			drop EK
@@ -215,12 +147,7 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 	rename EU drivealone_p
 		la var drivealone_p "% of workers who drive alone to work"
 			drop EV EW EX
-				rename EY drivealone_black
-					la var drivealone_black "% of Black workers who drive alone to work"
-						rename EZ drivealone_hispanic
-							la var drivealone_hispanic "% of Hispanic workers who drive alone to work"
-								rename FA drivealone_white
-									la var drivealone_white "% of White workers who drive alone to work"
+
 	rename FB drivealone
 		la var drivealone "# of workers who commute in their car, truck or van alone"
 			rename FC longcommute_p
@@ -230,57 +157,131 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 	drop if fips=="" | fips=="FIPS"
 	
 	destring ypll-longcommute_p, replace
-		
+	
+	rename county countyshort
+	
+	drop P Q R S T U V W X Y Z AA AB AC AD AU AV AW AX BE BF BG BH BI BJ BK BL BM BN CU CV CW CX CY CZ DA DB DC DS DT DU DV DW DX DY DZ EA EB EC ED EE EF EG EH EI EY EZ FA  
+	
+	distinct fips
+	
 	save chrdetail, replace
 
-
+// Process Google app check-in data
 clear
-
-	import delimited "counties_flattened.csv"
+import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05.csv" 
 	
-	drop if county==""
+	drop v1
+		
+	* Convert proportions to percents 
+	ds, has(type numeric)	
+	foreach var of varlist `r(varlist)'  {
+		replace `var'=`var'*100
+		}
+
+	* Format date and retain latest data
+		rename subunit_name county
+			order county, a(report_date)
+				replace report_date=substr(report_date,1,10)
+					gen googledate=date(report_date, "YMD")
+						format googledate %td
+							order googledate, first
+								drop report_date
+		
+		su googledate 
+			local latest: disp %td r(max)
+				di "Keeping only records in Google mobility scrape from `latest'"
+					keep if googledate==r(max)
+		
+	* Rename variables for consistency
+		rename unit_name state
+		
+		drop unit*
+		
+	save google_mobility, replace
+	
+	distinct state county
+
+// Import cell tower mobility data
+	clear
+	import delimited "https://raw.githubusercontent.com/descarteslabs/DL-COVID-19/master/DL-us-mobility-daterow.csv", encoding(ISO-8859-9) stringcols(6) 
+
+	* Drop state aggregates
+		drop if admin2==""
+
+	* Format date
 		gen date2=date(date,"YMD")
 			format date2 %td
 				drop date
 					rename date2 date
-
-	replace county=regexr(county," County","")
-		replace county=regexr(county," Parish","")
-			drop if regexm(count,"City of")
-				drop if state=="Virgina"
-
-	gen min=m50_count
-	gen max=m50_count
-	gen median=m50_count
-	
-	sort state county date
-	bysort state county: gen day=_n
-	
-	bysort state county: egen start3 = mean(m50_count) if inlist(day,1,2,3)
-	bysort state county: egen end3 = mean(m50_count) if inlist(day,15,14,13)
-	
-	collapse (min) min start3 end3 (max) max (median) median, by(state county)
-
-	gen trend=end3-start3
-		gen isolating=1 if trend<0 & trend!=.
-			replace isolating=0 if trend>=0 & trend!=.
 		
-merge m:1 state county using chrdetail, keep(3) nogen
-
-merge 1:1 fips using rucc, keep(3) nogen
-
-	distinct county
-	distinct county if trend==.
-
-	drop if trend==.
-
-	distinct county
+	* Note data start and end dates for graphs
+		su date 
+			local latest: disp %td r(max)
+				di "`latest'"
+			local earliest: disp %td r(min)
+				di "`'earliest'"
 	
+	* Rename variables for consistency
+		rename admin1 state
+		rename admin2 county
+	
+	* Create last 3 day moving average of last 3 weekdays
+		bysort county (date): egen weekdays=seq() if dow(date)!=0 & dow(date)!=6
+			by county: egen lastweekday=max(weekdays)
+				by county: egen last3_m50=mean(m50) if weekdays >= lastweekday-2 & weekdays!=.
+				by county: egen last3_sample=total(samples) if weekdays >= lastweekday-2 & weekdays!=.
+				by county: egen last3_pctchange=mean(m50_index) if weekdays >= lastweekday-2 & weekdays!=.
+
+		collapse (max) last3_m50 last3_pctchange last3_sample date (sum) samples, by(fips county)
+			la var last3_m50 "Median km traveled (last 3 weekdays)"
+			la var last3_sample "Number of cell trace samples during last 3 weekdays"
+			la var last3_pctchange "% change in median mobility since baseline"
+			note last3_pctchange: Baseline 17Feb to 07Mar; % change since then until last 3 weekdays
+	
+		distinct fips
+
+	save dlmobility, replace
+	
+	
+// Merge datasets
+		
+	clear
+	use chrdetail
+	
+	merge 1:1 fips using dlmobility, keep(1 3) nogen
+
+	merge 1:1 fips using rucc, keep(1 3) nogen
+	order county, a(fips)
+
+	drop if county==""
+	
+	merge 1:1 county state using google_mobility, keep(1 3) nogen
+
+	drop if last3_m50==.
+		
 	sort state county 
 	
-	cd "/Users/nabarun/Dropbox/Projects/Descartes Lab movement data/"
+//	Create quintiles
+		
+	local vars last3_pctchange subunit_grocery subunit_parks subunit_residential subunit_retail subunit_transit subunit_work
 	
- 	xtile temp = trend, nq(5)
+	foreach i of local vars {
+	xtile temp = `i', nq(5)
+		gen q_`i'=.
+		 replace q_`i'=1 if temp==5
+			replace q_`i'=2 if temp==4
+				replace q_`i'=3 if temp==3
+					replace q_`i'=4 if temp==2
+						replace q_`i'=5 if temp==1
+							order q_`i', a(`i')
+								la var q_`i' "Distancing: Lowest (1) to Highest (5)"
+									drop temp
+		}
+	
+	la var
+	
+	* Create quintiles of DL mobility
+	xtile temp = last3_pctchange, nq(5)
 		gen iso5=.
 		 replace iso5=1 if temp==5
 			replace iso5=2 if temp==4
@@ -288,7 +289,19 @@ merge 1:1 fips using rucc, keep(3) nogen
 					replace iso5=4 if temp==2
 						replace iso5=5 if temp==1
 							order iso5, a(trend)
-								la var iso5 "Social Distancing: Lowest (1) to Highest (5)"
+								la var iso5 "Distancing: Lowest (1) to Highest (5)"
+									drop temp
+	
+	* Create quintiles of Google Location Services data
+	xtile temp = last3_pctchange, nq(5)
+		gen iso5=.
+		 replace iso5=1 if temp==5
+			replace iso5=2 if temp==4
+				replace iso5=3 if temp==3
+					replace iso5=4 if temp==2
+						replace iso5=5 if temp==1
+							order iso5, a(trend)
+								la var iso5 "Distancing: Lowest (1) to Highest (5)"
 									drop temp
 	
 	la var fluvaccine "% Medicare Beneficiaries Getting Flu Vaccine"
