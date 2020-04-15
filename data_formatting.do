@@ -139,13 +139,8 @@ import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05
 				by county: egen last3_m50=mean(m50) if weekdays >= lastweekday-2 & weekdays!=.
 				by county: egen last3_sample=total(samples) if weekdays >= lastweekday-2 & weekdays!=.
 				by county: egen last3_index=mean(m50_index) if weekdays >= lastweekday-2 & weekdays!=.
-				
-				by county: egen first3_m50=mean(m50) if weekdays <= firstweekday+2 & weekdays!=.
-				by county: egen first3_sample=total(samples) if weekdays <= firstweekday+2 & weekdays!=.
-				by county: egen first3_index=mean(m50_index) if weekdays <= firstweekday+2 & weekdays!=.
-				
-				
-		collapse (max) last3_m50 last3_index last3_sample first3_index first3_sample first3_m50 date (sum) samples, by(fips county)
+								
+		collapse (max) last3_m50 last3_index last3_sample (sum) samples, by(fips county)
 			
 			la var last3_m50 "Median km traveled (last 3 weekdays)"
 			la var last3_sample "Number of cell trace samples during last 3 weekdays"
