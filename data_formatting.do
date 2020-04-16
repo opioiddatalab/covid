@@ -3,6 +3,88 @@ cd "/Users/nabarun/Documents/GitHub/covid/"
 
 // Import RWJF data
 
+import excel "/Users/nabarun/Documents/GitHub/covid/2019_County_Health_Rankings_Data_v3.xls", sheet("Additional Measure Data") clear
+	rename A fips
+	rename B state
+	rename C county
+	
+	rename D lifeexp
+		la var lifeexp "Life expectancy"
+	rename J premdeathageadj
+		la var premdeathageadj "Age-Adjusted Premature Mortality"
+	rename R childmortrate
+		la var childmortrate "Child Mortality Rate"
+	rename Y infantmort
+		la var infantmort "Infant Mortality Rate"
+	rename AE freqphysdist
+		la var freqphysdist "% Frequent Physical Distress"
+	rename AH freqmentdist
+		la var freqmentdist "% Frequent Mental Distress"
+	rename AK diabetic
+		la var diabetic "% Diabetic (Diabetes prevalence)"
+	rename AO hiv
+		la var hiv "HIV Prevalence Rate"
+	rename AQ foodinsec
+		la var foodinsec "% Food Insecure"
+	rename AR healthyfoods
+		la var healthyfoods "% Limited access to healthy foods"
+	rename AU drugod
+		la var drugod "Durg overdose mortality rate"
+	rename AW crashdeaths
+		la var crashdeaths "Motor vehicle crash deaths rate"
+	rename AZ nosleep
+		la var nosleep "% Insufficient Sleep"
+	rename BN medianincome
+		la var medianincome "Median household income"
+	rename BT schoollunch
+		la var schoollunch "% Children eligible for free or reduced price lunch"
+	rename BU segregation_bw
+		la var segregation_bw "Segregation index: Residential segregation - black/white"
+	rename BV segregation_wnw
+		la var segregation_wnw "Segregation index: Residential segregation - white/non-white"
+	rename BW homiciderate
+		la var homiciderate "Homicide rate"
+	rename CA firearmdeaths
+		la var firearmdeaths "Firearm fatality rate"
+	rename CE homeown
+		la var homeown "Homeownership: % Homeowners"
+	rename CI housingburden
+		la var housingburden "% Severe Housing Cost Burden"
+		
+	// Demographics
+	rename CL totalpop
+		la var totalpop "Population 2017 Census"
+	rename CM youth
+		la var youth "% younger than 18 years-old"
+	rename CN elderly
+		la var elderly "% older than 64 years-old"
+	rename CP black_p
+		la var black_p "% African-American"
+	rename CR native_p
+		la var native_p "% Native American"
+	rename CT asian_p
+		la var asian_p "% Asian American"
+	rename CV pacisl_p
+		la var pacisl_p "% Pacific Islanders"
+	rename CW hispanic
+		la var hispanic "% Hispanic"
+	rename CY nhw_p
+		la var nhw_p "% Non-Hispanic white"
+	rename DB notenglishprof
+		la var notenglishprof "% Not proficient in English"
+	rename DE female
+		la var female "% female"
+	rename DG rural
+		la var rural "% population rural"
+		
+	keep fips state county lifeexp premdeathageadj childmortrate infantmort freqphysdist freqmentdist diabetic foodinsec healthyfoods drugod crashdeaths nosleep medianincome schoollunch segregation_bw segregation_wnw homiciderate homeown totalpop youth elderly black_p native_p asian_p pacisl_p hispanic nhw_p female rural
+	
+	save addlmeasures, replace
+	
+	
+	*/
+	# Deaths	Age-Adjusted Mortality
+		
 import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Data") allstring clear
 
 	rename A fips
@@ -11,6 +93,7 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 	rename D ypll
 		la var ypll "Premature death - Years of Potential Life Lost Rate"
 
+		
 	rename AM food
 		la var food "Food Environment Index - Indicator of access to healthy foods - 0 is worst, 10 is best"
 			drop AN
@@ -171,6 +254,8 @@ import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05
 	clear
 	use covidchrdetail
 	
+	merge m:1 fips using sixrankings, keep(1 3)
+	
 	merge 1:1 fips using dlmobility, keep(1 3) nogen
 
 	merge 1:1 fips using rucc, keep(1 3) nogen
@@ -199,12 +284,17 @@ import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05
 							order q_`i', a(`i')
 								la var q_`i' "Social Distancing: Lowest (1) to Highest (5)"
 									drop temp
+			replace `i' = -1*`i'
 		}
 		
-	* Generate dummy variable for top 20% of social distancing intensity
+	* Generate indicator variable for top 20% of social distancing intensity
 		gen toptier = 0
 			replace toptier=1 if iso5==5
 				la var toptier "Dummy variable comapring top 20% to bottom 80% in mobility decrease"
+				
+	* Generate indicator variables for mobility change
+		qui: tabulate iso5, generate(levels)
+
 	
 	la var fluvaccine "% Medicare Beneficiaries Getting Flu Vaccine"
  
