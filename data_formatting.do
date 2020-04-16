@@ -197,10 +197,14 @@ import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05
 					replace q_`i'=4 if temp==2
 						replace q_`i'=5 if temp==1
 							order q_`i', a(`i')
-								la var q_`i' "Distancing: Lowest (1) to Highest (5)"
+								la var q_`i' "Social Distancing: Lowest (1) to Highest (5)"
 									drop temp
 		}
 		
+	* Generate dummy variable for top 20% of social distancing intensity
+		gen toptier = 0
+			replace toptier=1 if iso5==5
+				la var toptier "Dummy variable comapring top 20% to bottom 80% in mobility decrease"
 	
 	la var fluvaccine "% Medicare Beneficiaries Getting Flu Vaccine"
  
