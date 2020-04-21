@@ -1,8 +1,7 @@
 
 cd "/Users/nabarun/Documents/GitHub/covid/"
 
-// Import RWJF data
-
+// Import RWJF data: Additional Measures
 import excel "/Users/nabarun/Documents/GitHub/covid/2019_County_Health_Rankings_Data_v3.xls", sheet("Additional Measure Data") clear
 	rename A fips
 	rename B state
@@ -10,7 +9,7 @@ import excel "/Users/nabarun/Documents/GitHub/covid/2019_County_Health_Rankings_
 	
 	rename D lifeexp
 		la var lifeexp "Life expectancy"
-	rename J premdeathageadj
+	rename K premdeathageadj
 		la var premdeathageadj "Age-Adjusted Premature Mortality"
 	rename R childmortrate
 		la var childmortrate "Child Mortality Rate"
@@ -26,7 +25,7 @@ import excel "/Users/nabarun/Documents/GitHub/covid/2019_County_Health_Rankings_
 		la var hiv "HIV Prevalence Rate"
 	rename AQ foodinsec
 		la var foodinsec "% Food Insecure"
-	rename AR healthyfoods
+	rename AS healthyfoods
 		la var healthyfoods "% Limited access to healthy foods"
 	rename AU drugod
 		la var drugod "Durg overdose mortality rate"
@@ -66,9 +65,9 @@ import excel "/Users/nabarun/Documents/GitHub/covid/2019_County_Health_Rankings_
 		la var asian_p "% Asian American"
 	rename CV pacisl_p
 		la var pacisl_p "% Pacific Islanders"
-	rename CW hispanic
+	rename CX hispanic
 		la var hispanic "% Hispanic"
-	rename CY nhw_p
+	rename CZ nhw_p
 		la var nhw_p "% Non-Hispanic white"
 	rename DB notenglishprof
 		la var notenglishprof "% Not proficient in English"
@@ -77,13 +76,18 @@ import excel "/Users/nabarun/Documents/GitHub/covid/2019_County_Health_Rankings_
 	rename DG rural
 		la var rural "% population rural"
 		
-	keep fips state county lifeexp premdeathageadj childmortrate infantmort freqphysdist freqmentdist diabetic foodinsec healthyfoods drugod crashdeaths nosleep medianincome schoollunch segregation_bw segregation_wnw homiciderate homeown totalpop youth elderly black_p native_p asian_p pacisl_p hispanic nhw_p female rural
+		
+	local varsofmine "lifeexp premdeathageadj childmortrate infantmort freqphysdist freqmentdist diabetic foodinsec healthyfoods drugod crashdeaths nosleep medianincome schoollunch segregation_bw segregation_wnw homiciderate homeown totalpop youth elderly black_p native_p asian_p pacisl_p hispanic nhw_p female rural housingburden"
+	
+	keep `varsofmine' fips state county
+	
+	drop if fips==""
+	drop if fips=="FIPS"
+	
+	destring `varsofmine', replace force
 	
 	save addlmeasures, replace
 	
-	
-	*/
-	# Deaths	Age-Adjusted Mortality
 		
 import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Data") allstring clear
 
@@ -133,6 +137,9 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 					rename DQ incomeratio
 						la var incomeratio "Ratio of household income at 80th% to income at 20th %"
 							drop DR
+	rename ER overcrowding
+		la var overcrowding "% of homes with overcrowding"
+	
 	rename EU drivealone_p
 		la var drivealone_p "% of workers who drive alone to work"
 			drop EV EW EX
@@ -149,46 +156,11 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 	
 	rename county countyshort
 	
-	keep fips state countyshort ypll food physicalinactive exercise uninsured uninsured_p pcp_rate pcp pcp_ratio mhproviders mhproviders_rate fluvaccine income80 income20 incomeratio drivealone_p longcommute_p
+	keep fips state countyshort ypll food physicalinactive exercise uninsured uninsured_p pcp_rate pcp pcp_ratio mhproviders mhproviders_rate fluvaccine income80 income20 incomeratio drivealone_p longcommute_p overcrowding
 	
 	distinct fips
 	
 	save covidchrdetail, replace
-
-// Process Google app check-in data
-clear
-import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05.csv" 
-	
-	drop v1
-		
-	* Convert proportions to percents 
-	ds, has(type numeric)	
-	foreach var of varlist `r(varlist)'  {
-		replace `var'=`var'*100
-		}
-
-	* Format date and retain latest data
-		rename subunit_name county
-			order county, a(report_date)
-				replace report_date=substr(report_date,1,10)
-					gen googledate=date(report_date, "YMD")
-						format googledate %td
-							order googledate, first
-								drop report_date
-		
-		su googledate 
-			local latest: disp %td r(max)
-				di "Keeping only records in Google mobility scrape from `latest'"
-					keep if googledate==r(max)
-		
-	* Rename variables for consistency
-		rename unit_name state
-		
-		drop unit*
-		
-	save google_mobility, replace
-	
-	distinct state county
 
 // Import Descartes Labs
 	clear
@@ -254,7 +226,9 @@ import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05
 	clear
 	use covidchrdetail
 	
-	merge m:1 fips using sixrankings, keep(1 3)
+	merge m:1 fips using sixrankings, keep(1 3) nogen
+	
+	merge 1:1 fips using addlmeasures, keep (1 3) nogen
 	
 	merge 1:1 fips using dlmobility, keep(1 3) nogen
 
@@ -295,6 +269,35 @@ import delimited "/Users/nabarun/Documents/GitHub/covidnc/data/export-2020-04-05
 	* Generate indicator variables for mobility change
 		qui: tabulate iso5, generate(levels)
 
+// Create variable to indicate staty-at-home orders (1=orders, 0=no orders)
+	* Source: Mervosh et al. https://www.nytimes.com/interactive/2020/us/coronavirus-stay-at-home-order.html
+	
+		gen homeorder=1
+			replace homeorder=0 if state=="Arkansas"
+			replace homeorder=0 if state=="Iowa"
+			replace homeorder=0 if state=="North Dakota"
+			replace homeorder=0 if state=="South Dakota"
+			replace homeorder=0 if state=="Nebraska"
+			replace homeorder=0 if state=="Oklahoma"
+				replace homeorder=1 if state=="Oklahoma" & county=="Oklahoma County" //OKC Edmond
+				replace homeorder=1 if state=="Oklahoma" & county=="Sequoyah County" // Sallisaw
+				replace homeorder=1 if state=="Oklahoma" & county=="Payne County" // Stillwater
+				replace homeorder=1 if state=="Oklahoma" & county=="Carter County"  // Ardmore
+				replace homeorder=1 if state=="Oklahoma" & county=="Cleveland County" // Norman, Moore
+				replace homeorder=1 if state=="Oklahoma" & county=="Rogers County" // Claremore
+				replace homeorder=1 if state=="Oklahoma" & county=="Tulsa County" // Tulsa
+			replace homeorder=0 if state=="Utah"
+				replace homeorder=1 if state=="Utah" & county=="Davis County"
+				replace homeorder=1 if state=="Utah" & county=="Salt Lake County"
+				replace homeorder=1 if state=="Utah" & county=="Summit County"
+			replace homeorder=0 if state=="Wyoming"
+				replace homeorder=1 if state=="Wyoming" & county=="Teton County" // Jackson
+				
+			la var homeorder "Stay at home order for COVID-19"
+				note homeorder: From Mervosh et al. https://www.nytimes.com/interactive/2020/us/coronavirus-stay-at-home-order.html
+				note homeorder: As of April 21, 2020
+			
+		
 	
 	la var fluvaccine "% Medicare Beneficiaries Getting Flu Vaccine"
  
