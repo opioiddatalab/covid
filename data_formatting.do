@@ -204,20 +204,27 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 		rename admin1 state
 		rename admin2 county
 	
-	* Create last 3 day moving average of last 3 weekdays
-		bysort county (date): egen weekdays=seq() if dow(date)!=0 & dow(date)!=6
-			by county: egen lastweekday=max(weekdays)
-			by county: egen firstweekday=min(weekdays)
-			
-				by county: egen last3_m50=mean(m50) if weekdays >= lastweekday-2 & weekdays!=.
-				by county: egen last3_sample=total(samples) if weekdays >= lastweekday-2 & weekdays!=.
-				by county: egen last3_index=mean(m50_index) if weekdays >= lastweekday-2 & weekdays!=.
-		
-			di "Samples from baseline period February 17 to March 7, 2020:"
+	* Metrics
+		di "Samples from baseline period February 17 to March 7, 2020:"
 			qui: su samples if date>=mdy(2,17,2020) & date<= mdy(3,7,2020)
 			di r(sum)
 			
+	
+	* Create last 3 day moving average of last 3 weekdays
+		
+		* Keep only last 3 weekdays
+		keep if dow(date)!=0 & dow(date)!=6
+	
+			local latestweekday: disp %td r(max)
+				di "`latestweekday'"
+					gen latest=`latestweekday'
+		
+		su date 
+			keep if date>=r(max)-2	
 			
+				by county: egen last3_m50=mean(m50) 
+				by county: egen last3_sample=total(samples) 
+				by county: egen last3_index=mean(m50_index) 
 			
 		collapse (max) last3_m50 last3_index last3_sample (sum) samples, by(fips county)
 			
@@ -303,19 +310,19 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 			replace homeorder=0 if state=="South Dakota"
 			replace homeorder=0 if state=="Nebraska"
 			replace homeorder=0 if state=="Oklahoma"
-				replace homeorder=1 if state=="Oklahoma" & county=="Oklahoma County" //OKC Edmond
-				replace homeorder=1 if state=="Oklahoma" & county=="Sequoyah County" // Sallisaw
-				replace homeorder=1 if state=="Oklahoma" & county=="Payne County" // Stillwater
-				replace homeorder=1 if state=="Oklahoma" & county=="Carter County"  // Ardmore
-				replace homeorder=1 if state=="Oklahoma" & county=="Cleveland County" // Norman, Moore
-				replace homeorder=1 if state=="Oklahoma" & county=="Rogers County" // Claremore
-				replace homeorder=1 if state=="Oklahoma" & county=="Tulsa County" // Tulsa
+				replace homeorder=1 if state=="Oklahoma" & county=="Oklahoma" //OKC Edmond
+				replace homeorder=1 if state=="Oklahoma" & county=="Sequoyah" // Sallisaw
+				replace homeorder=1 if state=="Oklahoma" & county=="Payne" // Stillwater
+				replace homeorder=1 if state=="Oklahoma" & county=="Carter"  // Ardmore
+				replace homeorder=1 if state=="Oklahoma" & county=="Cleveland" // Norman, Moore
+				replace homeorder=1 if state=="Oklahoma" & county=="Rogers" // Claremore
+				replace homeorder=1 if state=="Oklahoma" & county=="Tulsa" // Tulsa
 			replace homeorder=0 if state=="Utah"
-				replace homeorder=1 if state=="Utah" & county=="Davis County"
-				replace homeorder=1 if state=="Utah" & county=="Salt Lake County"
-				replace homeorder=1 if state=="Utah" & county=="Summit County"
+				replace homeorder=1 if state=="Utah" & county=="Davis"
+				replace homeorder=1 if state=="Utah" & county=="Salt Lake"
+				replace homeorder=1 if state=="Utah" & county=="Summit"
 			replace homeorder=0 if state=="Wyoming"
-				replace homeorder=1 if state=="Wyoming" & county=="Teton County" // Jackson
+				replace homeorder=1 if state=="Wyoming" & county=="Teton" // Jackson
 				
 			la var homeorder "Stay at home order for COVID-19"
 				note homeorder: From Mervosh et al. https://www.nytimes.com/interactive/2020/us/coronavirus-stay-at-home-order.html
