@@ -13,7 +13,7 @@ import excel using "https://seer.cancer.gov/seerstat/variables/countyattribs/Rur
 		destring oldfips, g(temp)
 			gen fips=oldfips if temp>10000
 				replace fips="0"+oldfips if temp<10000
-					drop temp oldfips
+					drop temp oldfips C
 			
 						destring rucc, force replace
 	save rucc, replace
@@ -212,7 +212,13 @@ import excel "2019_County_Health_Rankings_Data_v3.xls", sheet("Ranked Measure Da
 				by county: egen last3_m50=mean(m50) if weekdays >= lastweekday-2 & weekdays!=.
 				by county: egen last3_sample=total(samples) if weekdays >= lastweekday-2 & weekdays!=.
 				by county: egen last3_index=mean(m50_index) if weekdays >= lastweekday-2 & weekdays!=.
-								
+		
+			di "Samples from baseline period February 17 to March 7, 2020:"
+			qui: su samples if date>=mdy(2,17,2020) & date<= mdy(3,7,2020)
+			di r(sum)
+			
+			
+			
 		collapse (max) last3_m50 last3_index last3_sample (sum) samples, by(fips county)
 			
 			la var last3_m50 "Median km traveled (last 3 weekdays)"
