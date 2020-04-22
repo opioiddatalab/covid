@@ -1,6 +1,24 @@
 
 cd "/Users/nabarun/Documents/GitHub/covid/"
 
+// RUCC 2013 defintion data from SEER
+clear all
+import excel using "https://seer.cancer.gov/seerstat/variables/countyattribs/Rural.Urban.Continuum.Codes.1974.1983.1993.2003.2013.xls", allstring case(lower)
+	rename A oldfips
+	rename H rucc
+		drop B D-G
+			drop if oldfips=="FIPS"
+				drop if rucc=="99"
+	
+		destring oldfips, g(temp)
+			gen fips=oldfips if temp>10000
+				replace fips="0"+oldfips if temp<10000
+					drop temp oldfips
+			
+						destring rucc, force replace
+	save rucc, replace
+
+
 // Import RWJF data: Additional Measures
 import excel "/Users/nabarun/Documents/GitHub/covid/2019_County_Health_Rankings_Data_v3.xls", sheet("Additional Measure Data") clear
 	rename A fips
