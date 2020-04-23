@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 16.0 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="600px" height="600px" viewBox="0 0 1584 1584" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="1584" height="1584" style="fill:#C6D3DF;stroke:none"/>
+	<rect x="0.00" y="0.05" width="1584.00" height="1583.95" style="fill:#C6D3DF"/>
+	<rect x="1.58" y="1.63" width="1580.83" height="1580.78" style="fill:none;stroke:#C6D3DF;stroke-width:3.17"/>
+	<line x1="55.44" y1="1370.56" x2="1324.12" y2="1370.56" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="1142.41" x2="1324.12" y2="1142.41" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="914.22" x2="1324.12" y2="914.22" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="686.07" x2="1324.12" y2="686.07" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="457.88" x2="1324.12" y2="457.88" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="229.73" x2="1324.12" y2="229.73" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<path d=" M64.90 229.73 L377.35 686.07 L689.75 1370.61 L1002.16 1370.61 L1314.56 914.26" stroke-linejoin="round" style="fill:none;stroke:#3E647D;stroke-width:19.01"/>
+	<text x="1346.10" y="1391.74" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">1.9</text>
+	<text x="1346.10" y="1163.59" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">2</text>
+	<text x="1346.10" y="935.40" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">2.1</text>
+	<text x="1346.10" y="707.25" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">2.2</text>
+	<text x="1346.10" y="479.06" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">2.3</text>
+	<text x="1346.10" y="250.91" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">2.4</text>
+	<text x="1499.40" y="800.17" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" transform="rotate(-90 1499.40,800.17)" text-anchor="middle">avg</text>
+	<line x1="55.44" y1="1380.06" x2="1324.12" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<line x1="64.95" y1="1358.08" x2="64.95" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="64.95" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">1</text>
+	<line x1="377.35" y1="1358.08" x2="377.35" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="377.35" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">2</text>
+	<line x1="689.75" y1="1358.08" x2="689.75" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="689.75" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">3</text>
+	<line x1="1002.21" y1="1358.08" x2="1002.21" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="1002.21" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">4</text>
+	<line x1="1314.61" y1="1358.08" x2="1314.61" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="1314.61" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">5</text>
+	<text x="689.75" y="1499.40" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">Social Distancing: Lowest (1) to Highest (5)</text>
+	<text x="90.29" y="156.84" style="font-family:'Helvetica';font-size:95.04px;fill:#000000">overcrowding</text>
+</svg>

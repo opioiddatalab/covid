@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 16.0 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="600px" height="600px" viewBox="0 0 1584 1584" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="1584" height="1584" style="fill:#C6D3DF;stroke:none"/>
+	<rect x="0.00" y="0.05" width="1584.00" height="1583.95" style="fill:#C6D3DF"/>
+	<rect x="1.58" y="1.63" width="1580.83" height="1580.78" style="fill:none;stroke:#C6D3DF;stroke-width:3.17"/>
+	<line x1="55.44" y1="1370.56" x2="1289.81" y2="1370.56" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="1085.34" x2="1289.81" y2="1085.34" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="800.17" x2="1289.81" y2="800.17" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="514.95" x2="1289.81" y2="514.95" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<line x1="55.44" y1="229.73" x2="1289.81" y2="229.73" style="stroke:#FFFFFF;stroke-width:4.75"/>
+	<path d=" M64.90 229.73 L368.74 514.95 L672.58 686.07 L976.42 629.05 L1280.26 1313.53" stroke-linejoin="round" style="fill:none;stroke:#3E647D;stroke-width:19.01"/>
+	<text x="1311.79" y="1391.74" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">23.5</text>
+	<text x="1311.79" y="1106.52" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">24</text>
+	<text x="1311.79" y="821.35" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">24.5</text>
+	<text x="1311.79" y="536.13" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">25</text>
+	<text x="1311.79" y="250.91" style="font-family:'Helvetica';font-size:60.49px;fill:#000000">25.5</text>
+	<text x="1499.40" y="800.17" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" transform="rotate(-90 1499.40,800.17)" text-anchor="middle">avg</text>
+	<line x1="55.44" y1="1380.06" x2="1289.81" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<line x1="64.95" y1="1358.08" x2="64.95" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="64.95" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">1</text>
+	<line x1="368.79" y1="1358.08" x2="368.79" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="368.79" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">2</text>
+	<line x1="672.63" y1="1358.08" x2="672.63" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="672.63" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">3</text>
+	<line x1="976.47" y1="1358.08" x2="976.47" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="976.47" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">4</text>
+	<line x1="1280.31" y1="1358.08" x2="1280.31" y2="1380.06" style="stroke:#000000;stroke-width:3.17"/>
+	<text x="1280.31" y="1433.37" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">5</text>
+	<text x="672.63" y="1499.40" style="font-family:'Helvetica';font-size:60.49px;fill:#000000" text-anchor="middle">Social Distancing: Lowest (1) to Highest (5)</text>
+	<text x="90.29" y="156.84" style="font-family:'Helvetica';font-size:95.04px;fill:#000000">youth</text>
+</svg>
