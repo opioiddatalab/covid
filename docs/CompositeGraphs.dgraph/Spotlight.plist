@@ -4,7 +4,7 @@
 <dict>
 	<key>Labels</key>
 	<string>Primary Care Providers
-Per 100,000
+Per 100,000 pop.
 avg
 LL
 UL
@@ -21,50 +21,58 @@ avg
 LL
 UL
 
-Household Income (80th percentile)
+Household Income, 80th percentile
 avg
 LL
 UL
 
-Free/Subsidized School Lunch Eligibility
+School Lunch Assistance Eligiblity
+% of Schoolchildren
 avg
 LL
 UL
 
 Food Insecurity
+% of Population
 avg
 LL
 UL
 
-Access to Exercise Facilities
+Access to Exercise Space
+% of population
 avg
 LL
 UL
 
 Residential Overcrowding
+Relative Index
 avg
 LL
 UL
 
 Under 18 Years-old Population
+% of population
 avg
 LL
 UL
 
 Elderly (64+ years) Population
+% of population
 avg
 LL
 UL
 
-Residential Segregation Index
+Residential Segregation
+Index
 avg
 LL
 UL
 
-DEMOGRAPHIC
-STRUCTURAL
 ECONOMIC
 HEALTHCARE
+STRUCTURAL
+DEMOGRAPHIC
+Mobility change as proxy for social distancing, by quintile low (1, left) to high (5, right)
 </string>
 	<key>Text</key>
 	<string></string>
